@@ -7,12 +7,12 @@ import DeA from '../de-a/de-a.component'
 import medicionCinta from '../helpers/medicionCinta'
 
 const CalculoDistanciasPrecisiones =  ({idx, distancia, handleOnChangeDist }) => {
-  let handleOnChangeText = e => {
+  const handleOnChangeText = e => {
     let {name,value} = e.target
     distancia[name] = value    
     handleOnChangeDist(distancia, idx)
   }
-  let handleOnChangeX = (index,value)=>{
+  const handleOnChangeX = (index,value)=>{
     let isNumber = !isNaN(Number(value))
     let addLectura = value.charAt(value.length-1).toLowerCase() === 'a'
 
@@ -26,12 +26,16 @@ const CalculoDistanciasPrecisiones =  ({idx, distancia, handleOnChangeDist }) =>
     }    
     handleOnChangeLecturas(distancia.lecturas)
   }
-  let handleOnChangeLecturas = lecturas => {
+  const handleOnChangeLecturas = lecturas => {
     distancia.lecturas=lecturas
     medicionCinta(distancia)
       .then(newDistancia =>
         handleOnChangeDist(newDistancia,idx)
       )
+  }
+  const handleOnDeleteLecture = pos =>{
+    distancia.lecturas.splice(pos,1)
+    handleOnChangeLecturas(distancia.lecturas)
   }
 
   return(

@@ -6,27 +6,13 @@ class MedicionDistanciasCinta extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      distancias: [
-        {
-          de: 'd1',
-          a: 'd2',
-          lecturas: [
-            {
-              x: '67.619',
-            }
-          ],
-          media: 0,
-          ro: 0,
-          dist: 0,
-          p: 0,
-        }  
-      ]
+      distancia: props.distancia
     }
   }
   handleOnChangeDist = (distancia, idx)=>{
-    let newDistancias = this.state.distancias.slice()
-    newDistancias[idx] = distancia
-    this.setState({distancias: newDistancias})
+    let newDistancia = this.state.distancia.slice()
+    newDistancia[idx] = distancia
+    this.setState({distancia: newDistancia})
   }  
   render(){
     return(
@@ -34,9 +20,9 @@ class MedicionDistanciasCinta extends React.Component {
         <div>
           <h2>Medicion con Cinta</h2>
           {
-            this.state.distancias.map((distancia,idx) => (
-              <CalculoDistanciasPrecisiones key={idx} idx={idx} distancia={distancia} handleOnChangeDist={this.handleOnChangeDist} />
-            ))
+            // this.state.distancia.map((lecturas,idx) => (
+            //   <CalculoDistanciasPrecisiones key={idx} idx={idx} distancia={distancia} handleOnChangeDist={this.handleOnChangeDist} />
+            // ))
           }
         </div>
       </div>

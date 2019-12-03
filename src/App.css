@@ -10,11 +10,14 @@
 }
 
 a {
-  color: #09d3ac;
   text-decoration: none;
+  color: white;
+}
+* {
+  box-sizing: border-box;
 }
 span {
-  font-size: .8rem;
+  font-size: 0.8rem;
 }
 table {
   margin: 2rem;
