@@ -2,8 +2,10 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./header.styles.scss";
 import { connect } from "react-redux";
+import CustomButtom from '../custom-button/custom-buttom.component'
+import { auth } from '../../firebase/firebase.utils'
 
-const Header = () => (
+const Header = ({ currentUser }) => (
   <nav className="header">
     <Link className="header-logo" to="/">
       Inicio
@@ -13,9 +15,17 @@ const Header = () => (
         <Link className="header-link" to="/proyectos">
           Proyectos
         </Link>
-        <Link className="header-link" to="/signIn">
-          Iniciar Sesion
-        </Link>
+        {
+          currentUser ? (
+            <div className="option" onClick={() => auth.signOut()}>
+              SIGN OUT
+            </div>
+          ) : (
+              <Link className="header-link" to="/signIn">
+                Iniciar Sesion
+              </Link>
+            )
+        }
       </li>
     </ul>
   </nav>

@@ -1,16 +1,17 @@
 import React from "react";
+import "./App.scss";
+
 import { Switch, Route, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
-
-import "./App.css";
+import { createStructuredSelector } from "reselect";
 
 import Header from "./components/header/header.component";
 import Home from "./pages/home/home.component";
-import LevantamientoCinta from "./pages/levantamiento-cinta/levantamiento-cinta.component";
 
 import { auth, createUserProfileDocument } from "./firebase/firebase.utils";
 import { setCurrentUser } from "./redux/user/user.actions";
 import SignInAndSignUp from "./pages/sign-in-and-sign-up/sign-in-and-sign-up.component";
+import MedicionDistanciasCinta from "./components/medicionDistanciasCintas/medicionDistanciasCinta.component";
 
 class App extends React.Component {
   unsubscribeFromAuth = null;
@@ -37,6 +38,7 @@ class App extends React.Component {
   }
 
   render() {
+    let {currentUser} = this.props;
     return (
       <div className="App">
         <Header />
@@ -45,16 +47,10 @@ class App extends React.Component {
             exact
             path="/"
             render={() =>
-              this.props.currentUser ? <Home /> : <Redirect to="/signIn" />
+              currentUser ? <Home /> : <Redirect to="/signIn" />
             }
           />
-          <Route
-            exact
-            path="/proyectos"
-            render={() =>
-              this.props.currentUser ? <Home /> : <Redirect to="/signIn" />
-            }
-          />
+          <Route exact path="/proyectos" component={MedicionDistanciasCinta} />
           <Route
             exact
             path="/signIn"
@@ -76,4 +72,8 @@ const mapDispatchToProps = dispatch => ({
   setCurrentUser: user => dispatch(setCurrentUser(user))
 });
 
-export default connect(null, mapDispatchToProps)(App);
+const mapStateToProps = ({ user: { currentUser } }) => ({
+  currentUser
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
