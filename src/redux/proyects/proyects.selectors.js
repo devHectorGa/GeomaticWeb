@@ -1,3 +1,3 @@
-import { createSelector } from "reselect";
+// import { createSelector } from "reselect";
 
-const selectProyects = state => state.proyects;
+export const selectProyects = state => state.proyects;

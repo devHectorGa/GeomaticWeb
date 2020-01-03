@@ -1,13 +1,12 @@
 import React from "react";
-
-import { data } from "./proyects.data";
+import { Route } from "react-router-dom";
 
 import ProyectsList from "../../components/proyects-list/proyects-list.component.jsx";
 
-const Proyects = () => (
+const Proyects = ({ match }) => (
   <div>
-    <h1>Proyectos</h1>
-    <ProyectsList proyects={data} />
+    <Route exact path={`${match.path}`} component={ProyectsList} />
+    {/* <Route patch={`${match.path}/:proyectId`} Component={ProyectsList} /> */}
   </div>
 );
 

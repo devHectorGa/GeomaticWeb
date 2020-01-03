@@ -3,6 +3,7 @@ import { persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 
 import userReducer from "./user/user.reducer";
+import proyectsReducer from "./proyects/proyects.reducer";
 
 const persistConfig = {
   key: "geomaticApp",
@@ -10,7 +11,8 @@ const persistConfig = {
 };
 
 const rootReducer = combineReducers({
-  user: userReducer
+  user: userReducer,
+  proyects: proyectsReducer
 });
 
 export default persistReducer(persistConfig, rootReducer);

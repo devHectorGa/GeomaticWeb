@@ -4,8 +4,14 @@ export const data = [
     place: "Universidad Nacional de Colombia",
     date: 1577990013305,
     commission: {
-      surveyor: { name: "Nombre del Topografo", email: "topografo@correo.com" },
-      annotator: { name: "Nombre del Anotador", email: "anotador@correo.com" },
+      surveyor: {
+        name: "Nombre del Topografo",
+        email: "topografo@correo.com"
+      },
+      annotator: {
+        name: "Nombre del Anotador",
+        email: "anotador@correo.com"
+      },
       auxiliary: [
         { name: "auxiliar1", email: "auxiliar1@createStoreHook.com" },
         { name: "auxiliar2", email: "auxiliar2@createStoreHook.com" }
@@ -30,8 +36,14 @@ export const data = [
     place: "Universidad Nacional de Colombia",
     date: 1577990031529,
     commission: {
-      surveyor: { name: "Nombre del Topografo", email: "topografo@correo.com" },
-      annotator: { name: "Nombre del Anotador", email: "anotador@correo.com" },
+      surveyor: {
+        name: "Nombre del Topografo",
+        email: "topografo@correo.com"
+      },
+      annotator: {
+        name: "Nombre del Anotador",
+        email: "anotador@correo.com"
+      },
       auxiliary: [
         { name: "auxiliar1", email: "auxiliar1@createStoreHook.com" },
         { name: "auxiliar2", email: "auxiliar2@createStoreHook.com" }
