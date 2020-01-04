@@ -6,7 +6,7 @@ export const AppContainer = styled.main`
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  font-size: calc(10px + 2vmin);
+  font-size: 16px;
   color: white;
   text-align: center;
 `;
