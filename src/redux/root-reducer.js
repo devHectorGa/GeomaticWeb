@@ -7,7 +7,8 @@ import proyectsReducer from "./proyects/proyects.reducer";
 
 const persistConfig = {
   key: "geomaticApp",
-  storage
+  storage,
+  whitelist: "user"
 };
 
 const rootReducer = combineReducers({

@@ -8,17 +8,22 @@ import ProyectsListTitles from "./proyects-list.titles";
 
 import { selectProyects } from "../../redux/proyects/proyects.selectors.js";
 import CustomButtom from "../custom-button/custom-buttom.component";
+import { addProyectStart } from "../../redux/proyects/proyects.actions";
 
-const ProyectsList = ({ proyects }) => (
+const ProyectsList = ({ proyects, addProyect }) => (
   <ProyectsListContainer>
     <ProyectsListTitles />
     {proyects.map((proyect, key) => (
       <ProyectListPreview key={key} proyect={proyect} />
     ))}
-    <CustomButtom>Agregar Proyecto +</CustomButtom>
+    <CustomButtom onClick={addProyect}>Agregar Proyecto +</CustomButtom>
   </ProyectsListContainer>
 );
 
 const mapStateToPros = createStructuredSelector({ proyects: selectProyects });
 
-export default connect(mapStateToPros)(ProyectsList);
+const madDispatchToProps = dispatch => ({
+  addProyect: () => dispatch(addProyectStart())
+});
+
+export default connect(mapStateToPros, madDispatchToProps)(ProyectsList);

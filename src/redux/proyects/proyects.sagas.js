@@ -1,4 +1,30 @@
-// import { takeLatest, put, all, call } from "redux-saga";
+import { takeLatest, put, all, call } from "redux-saga/effects";
+import ProyectsActionTypes from "./proyects.types";
+import { addProyectComplete } from "./proyects.actions";
 
-// import ProyectsActionTypes from "./proyects.types";
-// import {} from './proyects.actions'
+const proyectTemplate = {
+  title: "Nuevo Proyecto",
+  place: "",
+  date: new Date(),
+  commission: {
+    surveyor: {},
+    annotator: {},
+    auxiliary: []
+  },
+  equipment: [""],
+  data: {}
+};
+
+export function* addProyectStart() {
+  const newProyect = proyectTemplate;
+  yield console.log(newProyect);
+  yield put(addProyectComplete(newProyect));
+}
+
+export function* onAddProyect() {
+  yield takeLatest(ProyectsActionTypes.ADD_PROYECT_START, addProyectStart);
+}
+
+export function* proyectsSaga() {
+  yield all([call(onAddProyect)]);
+}
