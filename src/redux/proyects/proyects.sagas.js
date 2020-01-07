@@ -17,7 +17,6 @@ const proyectTemplate = {
 
 export function* addProyectStart() {
   const newProyect = proyectTemplate;
-  yield console.log(newProyect);
   yield put(addProyectComplete(newProyect));
 }
 

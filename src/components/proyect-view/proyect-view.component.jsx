@@ -1,5 +1,12 @@
 import React from "react";
+import { connect } from "react-redux";
 
-const ProyectView = props => <p>Proyecto{console.log(props)}</p>;
+import { selectProyect } from "../../redux/proyects/proyects.selectors";
 
-export default ProyectView;
+const ProyectView = ({ proyect }) => <h2>{proyect.title}</h2>;
+
+const mapStateToProps = (state, ownProps) => ({
+  proyect: selectProyect(ownProps.match.params.proyectId)(state)
+});
+
+export default connect(mapStateToProps)(ProyectView);
