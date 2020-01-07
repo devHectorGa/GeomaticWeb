@@ -1,9 +1,5 @@
 import React from "react";
 
-const ProyectView = ({ proyect }) => (
-  <p>
-    {proyect.title} <button>EDITAR</button>
-  </p>
-);
+const ProyectView = props => <p>Proyecto{console.log(props)}</p>;
 
 export default ProyectView;
