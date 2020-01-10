@@ -6,3 +6,5 @@ export const selectProyect = proyectUrlParam =>
   createSelector([selectProyects], proyects =>
     proyects ? proyects[proyectUrlParam] : null
   );
+
+export const proyectsCount = () => selectProyects.length;

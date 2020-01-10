@@ -17,6 +17,7 @@ export const data = [
         { name: "auxiliar2", email: "auxiliar2@createStoreHook.com" }
       ]
     },
+    type: "MEDICION_DE_DISTANCIAS_CINTA",
     equipment: ["Cinta Metrica"],
     data: {
       mediciones: [
@@ -49,6 +50,7 @@ export const data = [
         { name: "auxiliar2", email: "auxiliar2@createStoreHook.com" }
       ]
     },
+    type: "MEDICION_DE_ANGULOS_CON_CINTA",
     equipment: ["Cinta Metrica"],
     data: {
       mediciones: []

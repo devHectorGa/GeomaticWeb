@@ -6,6 +6,7 @@ const proyectTemplate = {
   title: "Nuevo Proyecto",
   place: "",
   date: new Date(),
+  type: "",
   commission: {
     surveyor: {},
     annotator: {},
