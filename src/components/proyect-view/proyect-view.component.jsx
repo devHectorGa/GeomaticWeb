@@ -18,14 +18,14 @@ const ProyectView = ({
   match,
   ...otherProps
 }) => {
-  const handleChange = event => {
-    const { value, name } = event.target;
-    console.log(name, value);
-    if (name === "date") {
-      console.log(new Date(value));
-    }
-    // this.setState({ [name]: value });
-  };
+  // const handleChange = event => {
+  //   const { value, name } = event.target;
+  //   console.log(name, value);
+  //   if (name === "date") {
+  //     console.log(new Date(value));
+  //   }
+  //   // this.setState({ [name]: value });
+  // };
   if (!exists) {
     history.push("/proyectos");
   }
