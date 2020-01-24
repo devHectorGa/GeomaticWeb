@@ -1,0 +1,190 @@
+%Para hacer informe con portada utilizamos report
+
+\documentclass[12pt]{report}
+
+\usepackage[a4paper]{geometry}
+\usepackage[myheadings]{fullpage}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{graphicx, wrapfig, subcaption, setspace, booktabs}
+\usepackage[T1]{fontenc}
+\usepackage[font=small, labelfont=bf]{caption}
+\usepackage{fourier}
+\usepackage[protrusion=true, expansion=true]{microtype}
+
+%Paquete para hipervinculos
+\usepackage[colorlinks=true]{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    filecolor=magenta,      
+    urlcolor=blue,
+}
+
+%Para qué los subtítulos aparezcan en español
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{sectsty}
+\usepackage{url, lipsum}
+\usepackage{tabularx}
+\usepackage{float}
+
+%--------------------------------------------------
+%Para agregar citas en apa
+%Para citar se usa el comando \cite{}
+%Las referencias se modifican en el archivo sample.bib
+\usepackage{apacite}
+%----------------------------------------------
+
+\newcommand{\HRule}[1]{\rule{\linewidth}{#1}}
+\onehalfspacing
+\setcounter{tocdepth}{5}
+\setcounter{secnumdepth}{5}
+
+%-------------------------------------------------------------------------------
+%Encabezado y pie de pagina y numeracion
+%\fancyhead para encabezado
+%\fancyfoot para pie de pagina
+% L para izquierda, left
+% R para derecha, right
+% C para centro, center
+%-------------------------------------------------------------------------------
+\pagestyle{fancy}
+\fancyhf{}
+\setlength\headheight{15pt}
+\fancyhead[L]{\chaptername \ \thechapter} 
+\fancyhead[R]{Universidad de Costa Rica}
+\fancyfoot[R]{\thepage}
+
+\begin{document}
+
+
+%-------------------------------------------------------------------------------
+% Portada
+%-------------------------------------------------------------------------------
+\title{ \normalsize Universidad de Costa Rica \\
+		Facultad de Ecucación\\
+		Programa de Tecnologías en Educación Avanzada
+		\\ [2.0cm]
+		\HRule{0.5pt} \\
+		\LARGE \textbf{Propuestas de Taller de \LaTeX} %para que quede encerrado en las lineas
+		\HRule{2pt} \\ [0.5cm]
+		\normalsize \today \vspace*{5\baselineskip}}
+
+\date{}
+
+\author{
+		Sofía Fonseca Muñoz \\ 
+		 sofia.fonsecamunoz@ucr.ac.cr}
+%se debe incluir el comando \maketitle para hacer 
+\maketitle
+
+%Para hacer el indice solo es necesario agregar 
+\tableofcontents
+\newpage
+
+%-------------------------------------------------------------------------------
+% Section title formatting
+%\sectionfont{\scshape}
+%-------------------------------------------------------------------------------
+
+%-------------------------------------------------------------------------------
+% BODY
+%-------------------------------------------------------------------------------
+
+\chapter{Introducción}
+
+\section{Justificación}
+Necesitamos cambiar el nombre de la letra, en \url{https://es.wikibooks.org/wiki/Manual_de_LaTeX/Escribiendo_texto/Tamaños,_estilos_y_tipos_de_letra}
+
+\section{Objetivos}
+\subsection{Objetivo general}
+Utilizar la herramienta \LaTeX para el desarrollo de instrumentos de investigación en el área de la educación.
+\subsection{Objetivos especificos}
+\begin{itemize}
+\item Identificar Latex como una herramienta útil para la confección del formato de una propuesta de investigación.
+\item Reconocer las plantillas de \LaTeX como ayuda para documentar.
+\item Conocer los comandos básicos de \LaTeX para la adaptación de plantillas en trabajos propios.
+\end{itemize}
+
+\section{Competencias}
+Al finalizar este taller, se espera que el participante sea capaz de:
+\begin{itemize}
+\item Entender la utilidad de la herramienta Latex el desarrollo del formato de propuestas de investigación.
+\item Adaptar plantillas de Latex para la creación de su propia documentación.
+\item Insertar sus propias tablas, imágenes y secciones en documentos de \LaTeX.
+\end{itemize}
+
+\section{Contenido} 
+El contenido de este taller se encuentra en las presentaciones adjuntas que se complementan con el material de apoyo presentes en el capítulo 2 de este documento.\cite{greenwade93}
+
+Además vemos como Einstein habla \cite{Einstein}
+\section{Cronograma}
+\subsection{Día 1}
+%--------------------------------TABLAS-------------
+%Insertar tabla
+% Las tablas se pueden genederar a través de:
+% www.tablegenerator.com
+%---------------------------------------------------
+
+\newpage
+\chapter{Material de apoyo}
+\section{Links útiles}
+\begin{itemize}
+\item Instalador para MacOS:
+http://www.tug.org/mactex/mactex-download.html
+\item Compiladores en línea:
+\item Generador de tablas:
+\item Manuales de ayuda:
+\end{itemize}
+
+
+%-------------------------------------------------------------------------------
+% REFERENCIAS
+%-------------------------------------------------------------------------------
+\newpage
+
+\bibliographystyle{apacite}
+\bibliography{sample.bib}
+
+
+\end{document}
+
+%-------------------------------------------------------------------------------
+% SNIPPETS
+%-------------------------------------------------------------------------------
+
+%\begin{figure}[!ht]
+%	\centering
+%	\includegraphics[width=0.8\textwidth]{file_name}
+%	\caption{}
+%	\centering
+%	\label{label:file_name}
+%\end{figure}
+
+%\begin{figure}[!ht]
+%	\centering
+%	\includegraphics[width=0.8\textwidth]{graph}
+%	\caption{Blood pressure ranges and associated level of hypertension (American Heart Association, 2013).}
+%	\centering
+%	\label{label:graph}
+%\end{figure}
+
+%\begin{wrapfigure}{r}{0.30\textwidth}
+%	\vspace{-40pt}
+%	\begin{center}
+%		\includegraphics[width=0.29\textwidth]{file_name}
+%	\end{center}
+%	\vspace{-20pt}
+%	\caption{}
+%	\label{label:file_name}
+%\end{wrapfigure}
+
+%\begin{wrapfigure}{r}{0.45\textwidth}
+%	\begin{center}
+%		\includegraphics[width=0.29\textwidth]{manometer}
+%	\end{center}
+%	\caption{Aneroid sphygmomanometer with stethoscope (Medicalexpo, 2012).}
+%	\label{label:manometer}
+%\end{wrapfigure}
+
