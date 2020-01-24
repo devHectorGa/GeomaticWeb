@@ -13,7 +13,7 @@ const CalculoDistanciasPrecisiones =  ({idx, distancia, handleOnChangeDist }) =>
     handleOnChangeDist(distancia, idx)
   }
   const handleOnChangeX = (index,value)=>{
-    let isNumber = !isNaN(Number(value))
+    let isNumber = !isNaN(Number(value))1
     let addLectura = value.charAt(value.length-1).toLowerCase() === 'a'
 
     if(isNumber){
