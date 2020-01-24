@@ -1,7 +1,7 @@
-import React from 'react'
+import React from "react";
 
-const Home = () => (
-  <p>Home</p>
-)
+import { HomeContainer } from "./home.styles";
 
-export default Home
+const Home = () => <HomeContainer>Home</HomeContainer>;
+
+export default Home;

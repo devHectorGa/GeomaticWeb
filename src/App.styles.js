@@ -9,4 +9,5 @@ export const AppContainer = styled.main`
   font-size: 16px;
   color: white;
   text-align: center;
+  padding-top: 4rem;
 `;

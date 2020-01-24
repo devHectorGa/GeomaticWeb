@@ -9,7 +9,7 @@ import ProyectsListContainer from "./proyects-list.container";
 import ProyectsListTitles from "./proyects-list.titles";
 
 import { selectProyects } from "../../redux/proyects/proyects.selectors.js";
-import CustomButtom from "../custom-button/custom-buttom.component";
+import CustomButton from "../custom-button/custom-button.component";
 import { addProyectStart } from "../../redux/proyects/proyects.actions";
 
 const ProyectsList = ({ proyects, addProyect, history, match }) => {
@@ -23,9 +23,9 @@ const ProyectsList = ({ proyects, addProyect, history, match }) => {
       {proyects.map((proyect, key) => (
         <ProyectListPreview key={key} id={key} proyect={proyect} />
       ))}
-      <CustomButtom onClick={handleOnAddProyect}>
+      <CustomButton onClick={handleOnAddProyect}>
         Agregar Proyecto +
-      </CustomButtom>
+      </CustomButton>
     </ProyectsListContainer>
   );
 };
