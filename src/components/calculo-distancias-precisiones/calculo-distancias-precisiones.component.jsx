@@ -52,7 +52,7 @@ const CalculoDistanciasPrecisiones =  ({idx, distancia, handleOnChangeDist }) =>
         <tbody>
           { distancia.lecturas.map(({x,v,v2}, index) => (
             <tr key={index} >
-              <td><input name='x' tipe='number' value={x} onChange={(e)=>handleOnChangeX(index,e.target.value)}/></td>
+              <td><input name='x' type='number' value={x} onChange={(e)=>handleOnChangeX(index,e.target.value)}/></td>
               <td> { tipoNumeroMostrar(v) } </td>
               <td>{ tipoNumeroMostrar(v2) }</td>
             </tr>

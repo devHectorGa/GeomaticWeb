@@ -11,6 +11,7 @@
 \usepackage{amscd}
 \usepackage{here}
 \usepackage{graphicx}
+\usepackage{epstopdf}
 \usepackage{lscape}
 \usepackage{tabularx}
 \usepackage{subfigure}
@@ -19,7 +20,7 @@
 
 \usepackage{rotating} %Para rotar texto, objetos y tablas seite. No se ve en DVI solo en PS. Seite 328 Hundebuch
                         %se usa junto con \rotate, \sidewidestable ....
-
+\epstopdfsetup{update}
 
 \renewcommand{\theequation}{\thechapter-\arabic{equation}}
 \renewcommand{\thefigure}{\textbf{\thechapter-\arabic{figure}}}

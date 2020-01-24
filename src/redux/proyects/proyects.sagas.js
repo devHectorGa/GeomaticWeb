@@ -2,15 +2,17 @@ import { takeLatest, put, all, call } from "redux-saga/effects";
 import ProyectsActionTypes from "./proyects.types";
 import { addProyectComplete } from "./proyects.actions";
 
+const dataCommission = {name: "", email: ""}
+
 const proyectTemplate = {
   title: "Nuevo Proyecto",
-  place: "",
+  place: "Desconocido",
   date: new Date(),
   type: "",
   commission: {
-    surveyor: {},
-    annotator: {},
-    auxiliary: []
+    surveyor: dataCommission,
+    annotator: dataCommission,
+    auxiliary: [dataCommission]
   },
   equipment: [""],
   data: {}
