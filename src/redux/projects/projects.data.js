@@ -18,7 +18,7 @@ export const data = [
       ]
     },
     type: "MEDICION_DE_DISTANCIAS_CINTA",
-    equipment: ["Cinta Metrica"],
+    equipment: ["Cinta Métrica"],
     data: {
       mediciones: [
         {
@@ -33,7 +33,7 @@ export const data = [
     }
   },
   {
-    title: "Medicion de Angulos con Cinta",
+    title: "Medicion de Ángulos con Cinta",
     place: "Universidad Nacional de Colombia",
     date: 1577990031529,
     commission: {
@@ -51,7 +51,7 @@ export const data = [
       ]
     },
     type: "MEDICION_DE_ANGULOS_CON_CINTA",
-    equipment: ["Cinta Metrica"],
+    equipment: ["Cinta Métrica"],
     data: {
       mediciones: []
     }

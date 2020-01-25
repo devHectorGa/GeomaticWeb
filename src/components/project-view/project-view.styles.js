@@ -1,10 +1,10 @@
 import styled from "styled-components";
-import ProyectTemplate from "./proyect-view.template";
+import ProjectTemplate from "./project-view.template";
 import FormInput from "../form-input/form-input.component";
 
-export const ProyectContainer = styled(ProyectTemplate)``;
+export const ProjectContainer = styled(ProjectTemplate)``;
 
-export const ProyectDetailContainer = styled.div`
+export const ProjectDetailContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
 `;

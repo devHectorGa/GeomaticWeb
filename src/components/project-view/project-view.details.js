@@ -2,21 +2,21 @@ import React from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import { compose } from "redux";
-import { ProyectDetailContainer, TitleContainer } from "./proyect-view.styles";
+import { ProjectDetailContainer, TitleContainer } from "./project-view.styles";
 
-import { selectProyect } from "../../redux/proyects/proyects.selectors";
+import { selectProject } from "../../redux/projects/projects.selectors";
 import FormInput from "../form-input/form-input.component";
 
-const ProyectDetails = ({ proyect }) => {
+const ProjectDetails = ({ project }) => {
   let handleChange = () => {};
-  let handleOnChangecommission = () => {};
+  let handleOnChangeCommission = () => {};
   let handleOnChangeAnnotator = () => {};
   return (
-    <ProyectDetailContainer>
+    <ProjectDetailContainer>
       <TitleContainer
         name="title"
         label="Titulo del Proyecto"
-        value={proyect.title}
+        value={project.title}
         handleChange={handleChange}
         required
       />
@@ -25,26 +25,26 @@ const ProyectDetails = ({ proyect }) => {
         name="date"
         type="date"
         label="Fecha"
-        value={new Date(proyect.date).toISOString().split("T")[0]}
+        value={new Date(project.date).toISOString().split("T")[0]}
         handleChange={handleChange}
         required
       />
-      <h3>Comision:</h3>
+      <h3>Comisión:</h3>
       <div>
-        Topografo:
+        Topógrafo:
         <FormInput
           name="name"
           label="Nombre del Topografo"
-          value={proyect.commission.surveyor.name}
-          handleChange={handleOnChangecommission}
+          value={project.commission.surveyor.name}
+          handleChange={handleOnChangeCommission}
           required
         />
         <FormInput
           name="email"
           type="email"
           label="Correo del Topografo"
-          value={proyect.commission.surveyor.email}
-          handleChange={handleOnChangecommission}
+          value={project.commission.surveyor.email}
+          handleChange={handleOnChangeCommission}
           required
         />
       </div>
@@ -53,27 +53,27 @@ const ProyectDetails = ({ proyect }) => {
         <FormInput
           name="name"
           label="Nombre del Anotador"
-          value={proyect.commission.surveyor.name}
+          value={project.commission.surveyor.name}
           handleChange={handleOnChangeAnnotator}
           required
         />
         <FormInput
           name="email"
           label="Correo del Anotador"
-          value={proyect.commission.surveyor.email}
-          handleChange={handleOnChangecommission}
+          value={project.commission.surveyor.email}
+          handleChange={handleOnChangeCommission}
           required
         />
       </div>
-    </ProyectDetailContainer>
+    </ProjectDetailContainer>
   );
 };
 
 const mapStateToProps = (state, ownProps) => ({
-  proyect: selectProyect(ownProps.match.params.proyectId)(state)
+  project: selectProject(ownProps.match.params.projectId)(state)
 });
 // const mapDispatchToProps = ()=>(
 
 // )
 
-export default compose(withRouter, connect(mapStateToProps))(ProyectDetails);
+export default compose(withRouter, connect(mapStateToProps))(ProjectDetails);

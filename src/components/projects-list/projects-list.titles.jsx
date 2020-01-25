@@ -1,9 +1,9 @@
 import React from "react";
-import { TableTitle, TableColumn } from "./proyects-list.styles";
+import { TableTitle, TableColumn } from "./projects-list.styles";
 
 const titles = ["Nombre", "Lugar", "Fecha"];
 
-const ProyectsListTitles = () => (
+const ProjectsListTitles = () => (
   <TableColumn>
     {titles.map((name, id) => (
       <TableTitle key={id}>{name}</TableTitle>
@@ -11,4 +11,4 @@ const ProyectsListTitles = () => (
   </TableColumn>
 );
 
-export default ProyectsListTitles;
+export default ProjectsListTitles;

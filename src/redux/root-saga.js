@@ -1,7 +1,7 @@
 import { all, call } from "redux-saga/effects";
 import { userSagas } from "./user/user.sagas";
-import { proyectsSaga } from "./proyects/proyects.sagas";
+import { projectsSaga } from "./projects/projects.sagas";
 
 export default function* rootSaga() {
-  yield all([call(userSagas), call(proyectsSaga)]);
+  yield all([call(userSagas), call(projectsSaga)]);
 }
