@@ -1,10 +1,11 @@
 import ProjectsActionTypes from "./projects.types";
 
-export const addProjectStart = () => ({
-  type: ProjectsActionTypes.ADD_PROJECT_START
+export const addProject = project => ({
+  type: ProjectsActionTypes.ADD_PROJECT,
+  payload: project
 });
 
-export const addProjectComplete = project => ({
-  type: ProjectsActionTypes.ADD_PROJECT_COMPLETE,
-  payload: project
+export const editProject = (project, id) => ({
+  type: ProjectsActionTypes.EDIT_PROJECT,
+  payload: { project, id }
 });

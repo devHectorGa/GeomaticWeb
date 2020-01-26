@@ -1,6 +1,7 @@
 const ProjectsActionTypes = {
   ADD_PROJECT: "ADD_PROJECT",
-  DELETE_PROJECT: "DELETE_PROJECT"
+  DELETE_PROJECT: "DELETE_PROJECT",
+  EDIT_PROJECT: "EDIT_PROJECT"
 };
 
 export default ProjectsActionTypes;

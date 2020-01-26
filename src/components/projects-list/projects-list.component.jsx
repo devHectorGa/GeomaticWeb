@@ -10,7 +10,7 @@ import ProjectsListTitles from "./projects-list.titles";
 
 import { selectProjects } from "../../redux/projects/projects.selectors.js";
 import CustomButton from "../custom-button/custom-button.component";
-import { addProjectStart } from "../../redux/projects/projects.actions";
+import { addProject } from "../../redux/projects/projects.actions";
 
 const ProjectsList = ({ projects, addProject, history, match }) => {
   let handleOnAddProject = async () => {
@@ -33,8 +33,23 @@ const ProjectsList = ({ projects, addProject, history, match }) => {
 const mapStateToPros = createStructuredSelector({ projects: selectProjects });
 
 const madDispatchToProps = dispatch => ({
-  addProject: () => dispatch(addProjectStart())
+  addProject: () => dispatch(addProject(projectTemplate))
 });
+
+const dataCommission = { name: "", email: "" };
+const projectTemplate = {
+  title: "Nuevo Proyecto",
+  place: "Desconocido",
+  date: new Date(),
+  type: "",
+  commission: {
+    surveyor: dataCommission,
+    annotator: dataCommission,
+    auxiliary: [dataCommission]
+  },
+  equipment: [""],
+  data: {}
+};
 
 export default compose(
   connect(mapStateToPros, madDispatchToProps),

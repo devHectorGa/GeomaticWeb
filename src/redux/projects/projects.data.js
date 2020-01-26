@@ -2,7 +2,7 @@ export const data = [
   {
     title: "Medicion de Distancias Con Cinta",
     place: "Universidad Nacional de Colombia",
-    date: 1577990013305,
+    date: "2020-01-25T18:26:35.984Z",
     commission: {
       surveyor: {
         name: "Nombre del Topografo",
@@ -35,7 +35,7 @@ export const data = [
   {
     title: "Medicion de Ángulos con Cinta",
     place: "Universidad Nacional de Colombia",
-    date: 1577990031529,
+    date: "2020-01-25T18:26:35.984Z",
     commission: {
       surveyor: {
         name: "Nombre del Topografo",

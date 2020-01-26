@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 
 export const HeaderContainer = styled.header`
+  z-index: 99;
   display: flex;
   flex-direction: row;
   justify-content: space-around;

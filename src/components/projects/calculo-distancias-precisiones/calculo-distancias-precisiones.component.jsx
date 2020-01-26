@@ -1,10 +1,10 @@
 import React from "react";
 
-import tipoNumeroMostrar from "../helpers/tipo-numero-mostrar";
+import tipoNumeroMostrar from "../../helpers/tipo-numero-mostrar";
 
 import DeA from "../de-a/de-a.component";
 
-import medicionCinta from "../helpers/medicionCinta";
+import medicionCinta from "../../helpers/medicionCinta";
 
 const CalculoDistanciasPrecisiones = ({
   idx,

@@ -7,4 +7,4 @@ export const selectProject = projectUrlParam =>
     projects ? projects[projectUrlParam] : null
   );
 
-export const projectsCount = () => selectProjects.length;
+export const projectsCount = selectProjects;
