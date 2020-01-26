@@ -38,14 +38,14 @@ const madDispatchToProps = dispatch => ({
 
 const dataCommission = { name: "", email: "" };
 const projectTemplate = {
-  title: "Nuevo Proyecto",
-  place: "Desconocido",
+  title: "",
+  place: "",
   date: new Date(),
   type: "",
   commission: {
     surveyor: dataCommission,
     annotator: dataCommission,
-    auxiliary: [dataCommission]
+    auxiliary: [dataCommission, dataCommission]
   },
   equipment: [""],
   data: {}

@@ -28,13 +28,29 @@ export const changeAnnotator = (project, event) => {
     ...otherProps
   } = project;
 
-  // let newAnnotator = { name: "nombre", email: "email" };
   let newAnnotator =
     name === "name"
       ? { ...annotator, name: value }
       : { ...annotator, email: value };
   return {
     commission: { annotator: newAnnotator, ...otherCommission },
+    ...otherProps
+  };
+};
+
+export const changeAuxiliary = (project, event, id) => {
+  const { name, value } = event.target;
+  const {
+    commission: { auxiliary, ...otherCommission },
+    ...otherProps
+  } = project;
+
+  let newAuxiliary = auxiliary.map((auxiliar, i) =>
+    i === id ? { ...auxiliar, [name]: value } : auxiliar
+  );
+
+  return {
+    commission: { auxiliary: newAuxiliary, ...otherCommission },
     ...otherProps
   };
 };

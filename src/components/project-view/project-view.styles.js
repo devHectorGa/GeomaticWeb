@@ -12,19 +12,24 @@ export const ProjectDetailEditContainer = styled.div`
   padding: 1rem 2rem;
 `;
 
-export const ProjectDetailContainer = styled.div``;
+export const ProjectDetailContainer = styled.div`
+  padding: 1rem 2rem;
+`;
 
-export const TitleContainer = styled.div`
+export const TitleContainer = styled.h2`
   grid-column: span 6;
   margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
 `;
 
 export const TitleEditContainer = styled.h3`
-  grid-column: span 4;
+  grid-column: span 3;
 `;
 
-export const DateContainer = styled.div`
-  grid-column: span 2;
+export const PlaceContainer = styled.div`
+  grid-column: span 3;
   margin: 0;
 `;
 
