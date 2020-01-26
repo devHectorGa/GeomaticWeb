@@ -14,7 +14,7 @@ import MedicionDistanciasCinta from "../projects/medicionDistanciasCintas/medici
 import EditProjectType from "../projects/edit-project-type/edit-project-type.component";
 import { ProjectContainer } from "./project-view.styles";
 
-const ProjectView = ({ id, project, exist, history, match, ...otherProps }) => {
+const ProjectView = ({ project, exist, history }) => {
   let Component = null;
   if (exist) {
     switch (project.type) {
@@ -31,8 +31,7 @@ const ProjectView = ({ id, project, exist, history, match, ...otherProps }) => {
   if (exist) {
     return (
       <ProjectContainer>
-        <p>Proyecto</p>
-        <Component project={project} {...otherProps}></Component>
+        <Component />
       </ProjectContainer>
     );
   } else {
@@ -42,8 +41,7 @@ const ProjectView = ({ id, project, exist, history, match, ...otherProps }) => {
 
 const mapStateToProps = (state, ownProps) => ({
   project: selectProject(ownProps.match.params.projectId)(state),
-  exist: projectsCount(state).length > ownProps.match.params.projectId,
-  id: parseInt(ownProps.match.params.projectId)
+  exist: projectsCount(state).length > ownProps.match.params.projectId
 });
 
 export default compose(connect(mapStateToProps), withRouter)(ProjectView);

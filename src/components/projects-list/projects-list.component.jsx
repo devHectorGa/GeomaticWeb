@@ -11,6 +11,7 @@ import ProjectsListTitles from "./projects-list.titles";
 import { selectProjects } from "../../redux/projects/projects.selectors.js";
 import CustomButton from "../custom-button/custom-button.component";
 import { addProject } from "../../redux/projects/projects.actions";
+import { ProjectTypes } from "../../redux/projects/projects.types";
 
 const ProjectsList = ({ projects, addProject, history, match }) => {
   let handleOnAddProject = async () => {
@@ -41,7 +42,7 @@ const projectTemplate = {
   title: "",
   place: "",
   date: new Date(),
-  type: "",
+  type: ProjectTypes.PROYECTO_DESCONOCIDO,
   commission: {
     surveyor: dataCommission,
     annotator: dataCommission,
