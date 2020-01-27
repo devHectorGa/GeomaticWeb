@@ -33,10 +33,21 @@ const googleSignInStyles = css`
     border: none;
   }
 `;
+const dangerStyles = css`
+  background-color: #c62121;
+  color: white;
+
+  &:hover {
+    background-color: #8d0101;
+    border: none;
+  }
+`;
 
 const getButtonStyles = props => {
   if (props.isGoogleSignIn) {
     return googleSignInStyles;
+  } else if (props.isDanger) {
+    return dangerStyles;
   }
 
   return props.inverted ? invertedButtonStyles : buttonStyles;

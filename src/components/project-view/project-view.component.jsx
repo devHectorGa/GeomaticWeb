@@ -25,8 +25,6 @@ const ProjectView = ({ project, exist, history }) => {
         Component = EditProjectType;
         break;
     }
-  } else {
-    history.push("/proyectos");
   }
   if (exist) {
     return (

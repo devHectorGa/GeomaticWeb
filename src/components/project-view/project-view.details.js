@@ -10,7 +10,8 @@ import {
   PlaceContainer,
   CommissionTitle,
   CommissionContainer,
-  CommissionName
+  CommissionName,
+  DeleteLabel
 } from "./project-view.styles";
 
 import {
@@ -21,11 +22,20 @@ import {
 } from "./project-view.helper";
 
 import { selectProject } from "../../redux/projects/projects.selectors";
-import { editProject } from "../../redux/projects/projects.actions";
+import {
+  editProject,
+  deleteProject
+} from "../../redux/projects/projects.actions";
 import FormInput from "../form-input/form-input.component";
 import CustomButton from "../custom-button/custom-button.component";
 
-const ProjectDetails = ({ project, id, editProject }) => {
+const ProjectDetails = ({
+  project,
+  id,
+  editProject,
+  deleteProject,
+  history
+}) => {
   const [show, setShow] = useState(false);
 
   let handleChangeTitle = event => editProject(changeTitle(project, event), id);
@@ -39,7 +49,10 @@ const ProjectDetails = ({ project, id, editProject }) => {
   let handleOnChangeAuxiliary = (event, i) =>
     editProject(changeAuxiliary(project, event, i), id);
 
-  // editProject(changeAnnotator(project, event), id);
+  let handleOnDeleteProject = () => {
+    deleteProject(id);
+    history.push("/proyectos");
+  };
 
   if (show) {
     return (
@@ -130,6 +143,10 @@ const ProjectDetails = ({ project, id, editProject }) => {
             />
           </CommissionContainer>
         ))}
+        <DeleteLabel>Eliminar Proyecto:</DeleteLabel>
+        <CustomButton isDanger onClick={() => handleOnDeleteProject(id)}>
+          Eliminar
+        </CustomButton>
       </ProjectDetailEditContainer>
     );
   } else {
@@ -152,7 +169,8 @@ const mapStateToProps = (state, ownProps) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  editProject: (project, id) => dispatch(editProject(project, id))
+  editProject: (project, id) => dispatch(editProject(project, id)),
+  deleteProject: id => dispatch(deleteProject(id))
 });
 
 export default compose(

@@ -49,3 +49,8 @@ export const CommissionName = styled.p`
   text-align: left;
   margin: 0;
 `;
+
+export const DeleteLabel = styled.p`
+  font-size: 1.5rem;
+  grid-column: span 2;
+`;

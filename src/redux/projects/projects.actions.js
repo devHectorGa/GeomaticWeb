@@ -9,3 +9,8 @@ export const editProject = (project, id) => ({
   type: ProjectsActionTypes.EDIT_PROJECT,
   payload: { project, id }
 });
+
+export const deleteProject = id => ({
+  type: ProjectsActionTypes.DELETE_PROJECT,
+  payload: id
+});
