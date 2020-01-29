@@ -10,7 +10,7 @@ const projectsReducer = (state = INITIAL_STATE, action) => {
         i === action.payload.id ? action.payload.project : project
       );
     case ProjectsActionTypes.DELETE_PROJECT:
-      return [...state.splice(action.payload, 1)];
+      return state.filter((_, index) => index !== action.payload);
     default:
       return state;
   }

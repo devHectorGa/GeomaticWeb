@@ -21,7 +21,6 @@ const EditProjectType = ({ project, id, editProject }) => (
       {Object.values(ProjectTypes).map((type, i) => (
         <option key={i}>{type.replace(/_/g, " ")}</option>
       ))}
-      {console.log(Object.values(ProjectTypes))}
     </Select>
   </EditProjectTypeContainer>
 );

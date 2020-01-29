@@ -49,7 +49,7 @@ const ProjectDetails = ({
   let handleOnChangeAuxiliary = (event, i) =>
     editProject(changeAuxiliary(project, event, i), id);
 
-  let handleOnDeleteProject = () => {
+  let handleOnDeleteProject = async () => {
     deleteProject(id);
     history.push("/proyectos");
   };
