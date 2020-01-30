@@ -13,8 +13,8 @@ const CalculoDistanciasPrecisiones = ({
 }) => {
   const handleOnChangeText = e => {
     let { name, value } = e.target;
-    distancia[name] = value;
-    handleOnChangeDist(distancia, idx);
+    let newDistancia = { [name]: value };
+    handleOnChangeDist(newDistancia, idx);
   };
   const handleOnChangeX = (index, value) => {
     let isNumber = !isNaN(Number(value));
@@ -44,8 +44,8 @@ const CalculoDistanciasPrecisiones = ({
   return (
     <div>
       <DeA
-        de={distancia.de}
-        a={distancia.a}
+        de={distancia.de ? distancia.de : "Desde"}
+        a={distancia.a ? distancia.de : "Hasta"}
         handleOnChangeText={handleOnChangeText}
       />
       <table>
