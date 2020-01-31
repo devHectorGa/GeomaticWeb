@@ -27,7 +27,11 @@ const CalculoDistanciasPrecisiones = ({
       let lectura = { x: 0 };
       distancia.lecturas.push(lectura);
     } else if (deleteLectura) {
-      distancia.lecturas = distancia.lecturas.filter((_, idx) => index !== idx);
+      if (distancia.lecturas.length > 1) {
+        distancia.lecturas = distancia.lecturas.filter(
+          (_, idx) => index !== idx
+        );
+      }
     } else {
       return null;
     }
@@ -38,10 +42,6 @@ const CalculoDistanciasPrecisiones = ({
     medicionCinta(distancia).then(newDistancia =>
       handleOnChangeDist(newDistancia, idx)
     );
-  };
-  const handleOnDeleteLecture = pos => {
-    distancia.lecturas.splice(pos, 1);
-    handleOnChangeLecturas(distancia.lecturas);
   };
 
   return (
@@ -91,14 +91,10 @@ const CalculoDistanciasPrecisiones = ({
           <tr>
             <td>Error:</td>
             <td>{tipoNumeroMostrar(distancia.ro)}</td>
-          </tr>
-          <tr>
             <td>Distancia:</td>
             <td>{`${tipoNumeroMostrar(distancia.media)}+-${tipoNumeroMostrar(
               distancia.ro
             )}`}</td>
-          </tr>
-          <tr>
             <td>Precisión:</td>
             <td>{tipoNumeroMostrar(distancia.p)}</td>
           </tr>

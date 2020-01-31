@@ -15,10 +15,6 @@ const DeA = ({ de, a, handleOnChangeText }) => (
             onChange={e => handleOnChangeText(e)}
           />
         </td>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
         <th>A</th>
         <td>
           <FormInput
@@ -30,7 +26,7 @@ const DeA = ({ de, a, handleOnChangeText }) => (
           />
         </td>
       </tr>
-    </tbody>
+    </thead>
   </table>
 );
 
