@@ -19,13 +19,15 @@ const CalculoDistanciasPrecisiones = ({
   const handleOnChangeX = (index, value) => {
     let isNumber = !isNaN(Number(value));
     let addLectura = value.charAt(value.length - 1).toLowerCase() === "a";
-    console.log(addLectura);
+    let deleteLectura = value.charAt(value.length - 1).toLowerCase() === "d";
 
     if (isNumber) {
       distancia.lecturas[index].x = value;
     } else if (addLectura) {
       let lectura = { x: 0 };
       distancia.lecturas.push(lectura);
+    } else if (deleteLectura) {
+      distancia.lecturas = distancia.lecturas.filter((_, idx) => index !== idx);
     } else {
       return null;
     }
@@ -63,7 +65,6 @@ const CalculoDistanciasPrecisiones = ({
               <td>
                 <input
                   name="x"
-                  type="number"
                   value={x}
                   onChange={e => handleOnChangeX(index, e.target.value)}
                 />
