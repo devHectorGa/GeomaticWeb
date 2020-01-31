@@ -1,6 +1,7 @@
 import React from "react";
 
 import tipoNumeroMostrar from "../../helpers/tipo-numero-mostrar";
+import { changeValue } from "./calculo-distancias-precisiones.helper";
 
 import DeA from "../de-a/de-a.component";
 
@@ -12,13 +13,13 @@ const CalculoDistanciasPrecisiones = ({
   handleOnChangeDist
 }) => {
   const handleOnChangeText = e => {
-    let { name, value } = e.target;
-    let newDistancia = { [name]: value };
-    handleOnChangeDist(newDistancia, idx);
+    let newDistancia = changeValue(distancia, e);
+    handleOnChangeDist(newDistancia);
   };
   const handleOnChangeX = (index, value) => {
     let isNumber = !isNaN(Number(value));
     let addLectura = value.charAt(value.length - 1).toLowerCase() === "a";
+    console.log(addLectura);
 
     if (isNumber) {
       distancia.lecturas[index].x = value;
@@ -45,7 +46,7 @@ const CalculoDistanciasPrecisiones = ({
     <div>
       <DeA
         de={distancia.de ? distancia.de : "Desde"}
-        a={distancia.a ? distancia.de : "Hasta"}
+        a={distancia.a ? distancia.a : "Hasta"}
         handleOnChangeText={handleOnChangeText}
       />
       <table>
