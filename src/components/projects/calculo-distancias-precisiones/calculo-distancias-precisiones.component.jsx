@@ -1,11 +1,15 @@
 import React from "react";
 
+import {
+  CalculosContainer,
+  CalculosAtajos
+} from "./calculo-distancias-precisiones.style";
+
 import tipoNumeroMostrar from "../../helpers/tipo-numero-mostrar";
 import { changeValue } from "./calculo-distancias-precisiones.helper";
 
-import DeA from "../de-a/de-a.component";
-
 import medicionCinta from "../../helpers/medicionCinta";
+import DeA from "../de-a/de-a.component";
 
 const CalculoDistanciasPrecisiones = ({
   idx,
@@ -45,10 +49,10 @@ const CalculoDistanciasPrecisiones = ({
   };
 
   return (
-    <div>
+    <CalculosContainer>
       <DeA
-        de={distancia.de ? distancia.de : "Desde"}
-        a={distancia.a ? distancia.a : "Hasta"}
+        de={distancia.de ? distancia.de : ""}
+        a={distancia.a ? distancia.a : ""}
         handleOnChangeText={handleOnChangeText}
       />
       <table>
@@ -100,14 +104,18 @@ const CalculoDistanciasPrecisiones = ({
           </tr>
         </tbody>
       </table>
-      <span>Atajos de teclado: </span>
-      <span>
-        <ul>
-          <li>a: agregar lectura</li>
-          <li>d: eliminar lectura</li>
-        </ul>
-      </span>
-    </div>
+      <CalculosAtajos>
+        <span>Atajos de teclado: </span>
+        <p>
+          a:
+          <small> agregar lectura</small>
+        </p>
+        <p>
+          d:
+          <small> eliminar lectura</small>
+        </p>
+      </CalculosAtajos>
+    </CalculosContainer>
   );
 };
 
