@@ -1,7 +1,7 @@
 import React from "react";
 import { TableTitle, TableColumn } from "./projects-list.styles";
 
-const titles = ["Nombre", "Lugar", "Fecha"];
+const titles = ["Nombre", "Lugar"];
 
 const ProjectsListTitles = () => (
   <TableColumn>

@@ -53,12 +53,12 @@ const ProjectDetails = ({
     deleteProject(id);
     history.push("/proyectos");
   };
-
+  console.log(project.date);
   if (show) {
     return (
       <ProjectDetailEditContainer>
         <TitleContainer>
-          {`${project.title} - ${new Date(project.date).toLocaleDateString()}`}
+          {`${project.title}`}
           <CustomButton onClick={() => setShow(!show)}>
             Ocultar Detalles
           </CustomButton>

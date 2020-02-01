@@ -20,7 +20,7 @@ export const TableContainer = styled.div`
 export const TableColumn = styled.div`
   width: 100%;
   display: grid;
-  grid-template-columns: 3fr 2fr 1fr;
+  grid-template-columns: 3fr 2fr;
 `;
 
 export const TableTitle = styled.h3``;

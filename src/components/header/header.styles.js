@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
-export const HeaderContainer = styled.header`
+export const HeaderContainer = styled.div`
   z-index: 99;
   display: flex;
   flex-direction: row;
@@ -12,6 +12,12 @@ export const HeaderContainer = styled.header`
   top: 0;
   left: 0;
   width: 100%;
+
+  @media screen and (max-width: 800px) {
+    height: 60px;
+    padding: 10px;
+    margin-bottom: 20px;
+  }
 `;
 
 export const HeaderLink = styled(Link)`
@@ -24,21 +30,21 @@ export const HeaderLink = styled(Link)`
   }
 `;
 
-export const HeaderNav = styled.nav`
-  margin: 0;
-  padding: 0;
+export const OptionsContainer = styled.div`
+  width: 50%;
   height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  @media screen and (max-width: 800px) {
+    width: 80%;
+  }
 `;
 
-export const HeaderButton = styled.button`
+export const OptionLink = styled(Link)`
   cursor: pointer;
-  background-color: #000;
-  color: #fff;
-  border: none;
-  border-radius: 0;
   padding: 1rem;
-  margin: 0;
-
   transition: background-color 0.3s ease-in-out;
 
   &:hover {
@@ -46,3 +52,5 @@ export const HeaderButton = styled.button`
     color: #555;
   }
 `;
+
+OptionLink.displayName = "OptionLink";

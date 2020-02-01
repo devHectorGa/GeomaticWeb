@@ -1,29 +1,39 @@
 import React from "react";
+import { connect } from "react-redux";
+import { createStructuredSelector } from "reselect";
+
+import { selectCurrentUser } from "../../redux/user/user.selectors";
+import { signOutStart } from "../../redux/user/user.actions";
+
 import {
   HeaderContainer,
   HeaderLink,
-  HeaderNav,
-  HeaderButton
+  OptionsContainer,
+  OptionLink
 } from "./header.styles";
-import { connect } from "react-redux";
-import { auth } from "../../firebase/firebase.utils";
 
-const Header = ({ currentUser }) => (
+const Header = ({ currentUser, signOutStart }) => (
   <HeaderContainer>
     <HeaderLink to="/">Inicio</HeaderLink>
-    <HeaderNav>
+    <OptionsContainer>
       <HeaderLink to="/proyectos">Proyectos</HeaderLink>
       {currentUser ? (
-        <HeaderButton onClick={() => auth.signOut()}>SIGN OUT</HeaderButton>
+        <OptionLink as="div" onClick={signOutStart}>
+          Cerrar Sesión
+        </OptionLink>
       ) : (
-        <HeaderLink to="/signIn">Iniciar Sesión</HeaderLink>
+        <OptionLink to="/signIn">Iniciar Sesión</OptionLink>
       )}
-    </HeaderNav>
+    </OptionsContainer>
   </HeaderContainer>
 );
 
-const mapStateToProps = ({ user: { currentUser } }) => ({
-  currentUser
+const mapStateToProps = createStructuredSelector({
+  currentUser: selectCurrentUser
 });
 
-export default connect(mapStateToProps)(Header);
+const mapDispatchToProps = dispatch => ({
+  signOutStart: () => dispatch(signOutStart())
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Header);

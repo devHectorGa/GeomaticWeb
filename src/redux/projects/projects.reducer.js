@@ -11,6 +11,10 @@ const projectsReducer = (state = INITIAL_STATE, action) => {
       );
     case ProjectsActionTypes.DELETE_PROJECT:
       return state.filter((_, index) => index !== action.payload);
+    case ProjectsActionTypes.SET_PROJECT_FROM_FIREBASE:
+      return action.payload;
+    case ProjectsActionTypes.CLEAR_PROJECT:
+      return [];
     default:
       return state;
   }
