@@ -1,11 +1,15 @@
 import React from "react";
 
+import {
+  CalculosContainer,
+  CalculosAtajos
+} from "./calculo-distancias-precisiones.style";
+
 import tipoNumeroMostrar from "../../helpers/tipo-numero-mostrar";
 import { changeValue } from "./calculo-distancias-precisiones.helper";
 
-import DeA from "../de-a/de-a.component";
-
 import medicionCinta from "../../helpers/medicionCinta";
+import DeA from "../de-a/de-a.component";
 
 const CalculoDistanciasPrecisiones = ({
   idx,
@@ -27,7 +31,11 @@ const CalculoDistanciasPrecisiones = ({
       let lectura = { x: 0 };
       distancia.lecturas.push(lectura);
     } else if (deleteLectura) {
-      distancia.lecturas = distancia.lecturas.filter((_, idx) => index !== idx);
+      if (distancia.lecturas.length > 1) {
+        distancia.lecturas = distancia.lecturas.filter(
+          (_, idx) => index !== idx
+        );
+      }
     } else {
       return null;
     }
@@ -39,16 +47,12 @@ const CalculoDistanciasPrecisiones = ({
       handleOnChangeDist(newDistancia, idx)
     );
   };
-  const handleOnDeleteLecture = pos => {
-    distancia.lecturas.splice(pos, 1);
-    handleOnChangeLecturas(distancia.lecturas);
-  };
 
   return (
-    <div>
+    <CalculosContainer>
       <DeA
-        de={distancia.de ? distancia.de : "Desde"}
-        a={distancia.a ? distancia.a : "Hasta"}
+        de={distancia.de ? distancia.de : ""}
+        a={distancia.a ? distancia.a : ""}
         handleOnChangeText={handleOnChangeText}
       />
       <table>
@@ -91,27 +95,27 @@ const CalculoDistanciasPrecisiones = ({
           <tr>
             <td>Error:</td>
             <td>{tipoNumeroMostrar(distancia.ro)}</td>
-          </tr>
-          <tr>
             <td>Distancia:</td>
             <td>{`${tipoNumeroMostrar(distancia.media)}+-${tipoNumeroMostrar(
               distancia.ro
             )}`}</td>
-          </tr>
-          <tr>
             <td>Precisión:</td>
             <td>{tipoNumeroMostrar(distancia.p)}</td>
           </tr>
         </tbody>
       </table>
-      <span>Atajos de teclado: </span>
-      <span>
-        <ul>
-          <li>a: agregar lectura</li>
-          <li>d: eliminar lectura</li>
-        </ul>
-      </span>
-    </div>
+      <CalculosAtajos>
+        <span>Atajos de teclado: </span>
+        <p>
+          a:
+          <small> agregar lectura</small>
+        </p>
+        <p>
+          d:
+          <small> eliminar lectura</small>
+        </p>
+      </CalculosAtajos>
+    </CalculosContainer>
   );
 };
 
