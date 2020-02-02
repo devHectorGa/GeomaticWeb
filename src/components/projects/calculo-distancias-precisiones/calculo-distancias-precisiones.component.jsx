@@ -39,10 +39,6 @@ const CalculoDistanciasPrecisiones = ({
       handleOnChangeDist(newDistancia, idx)
     );
   };
-  const handleOnDeleteLecture = pos => {
-    distancia.lecturas.splice(pos, 1);
-    handleOnChangeLecturas(distancia.lecturas);
-  };
 
   return (
     <div>

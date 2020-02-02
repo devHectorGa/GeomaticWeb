@@ -10,8 +10,9 @@ import {
   projectsCount
 } from "../../redux/projects/projects.selectors";
 
-import MedicionDistanciasCinta from "../projects/medicionDistanciasCintas/medicionDistanciasCinta.component";
 import EditProjectType from "../projects/edit-project-type/edit-project-type.component";
+import MedicionDistanciasCinta from "../projects/medicionDistanciasCintas/medicionDistanciasCinta.component";
+import MedicionAngulosCinta from "../projects/medicion-angulos-cinta/medicion-angulos-cinta.component.jsx";
 import { ProjectContainer } from "./project-view.styles";
 
 const ProjectView = ({ project, exist, history }) => {
@@ -20,6 +21,9 @@ const ProjectView = ({ project, exist, history }) => {
     switch (project.type) {
       case ProjectTypes.MEDICION_DE_DISTANCIAS_CINTA:
         Component = MedicionDistanciasCinta;
+        break;
+      case ProjectTypes.MEDICION_DE_ANGULOS_CON_CINTA:
+        Component = MedicionAngulosCinta;
         break;
       default:
         Component = EditProjectType;

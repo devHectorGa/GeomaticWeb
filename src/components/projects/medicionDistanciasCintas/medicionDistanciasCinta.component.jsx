@@ -5,18 +5,9 @@ import { withRouter } from "react-router-dom";
 
 import { selectProject } from "../../../redux/projects/projects.selectors";
 import { editProject } from "../../../redux/projects/projects.actions";
-import CustomButton from "../../custom-button/custom-button.component";
-import FormInput from "../../form-input/form-input.component";
 
-import {
-  MedicionContainer,
-  Title,
-  ValueContainer
-} from "./medicionCinta.styles";
-
-import tipoNumeroMostrar from "../../helpers/tipo-numero-mostrar";
+import { MedicionContainer, Title } from "./medicionCinta.styles";
 import { isDistanciaEmpty } from "./medicionDistanciasCintas.helper";
-
 import CalculoDistanciasPrecisiones from "../calculo-distancias-precisiones/calculo-distancias-precisiones.component";
 
 const MedicionDistanciasCinta = ({ project, id, editProject }) => {
@@ -56,8 +47,5 @@ const mapDispatchToProps = dispatch => ({
 
 export default compose(
   withRouter,
-  connect(
-    mapStateToProps,
-    mapDispatchToProps
-  )
+  connect(mapStateToProps, mapDispatchToProps)
 )(MedicionDistanciasCinta);
