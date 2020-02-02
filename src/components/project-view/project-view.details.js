@@ -53,7 +53,6 @@ const ProjectDetails = ({
     deleteProject(id);
     history.push("/proyectos");
   };
-  console.log(project.date);
   if (show) {
     return (
       <ProjectDetailEditContainer>

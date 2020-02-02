@@ -11,8 +11,8 @@ export const AngulosContainer = styled.div`
 export const CalcAngContainer = styled.div`
   display: grid;
   grid-template-areas:
-    "delta point1 radio cuerda ang angCor"
-    "delta point2 radio cuerda ang angCor";
+    "delta point1 radio cuerda ang angDel"
+    "delta point2 radio cuerda ang angDel";
   align-items: center;
 
   &:nth-child(even) {
@@ -47,7 +47,7 @@ export const AngContainer = styled.div`
   grid-area: ang;
   ${commonStyles}
 `;
-export const AngCorContainer = styled.div`
-  grid-area: angCor;
+export const AngDelContainer = styled.div`
+  grid-area: angDel;
   ${commonStyles}
 `;
