@@ -74,11 +74,15 @@ const getAngulo = async angulo => {
 };
 
 const getSumObs = async ({ angulo }) => {
-  let sumatoriaObservada = angulo.reduce(
-    (accumulatedSum, ang) => accumulatedSum + ang.anguloMedido,
-    0
-  );
-  return sumatoriaObservada;
+  try {
+    let sumatoriaObservada = angulo.reduce(
+      (accumulatedSum, ang) => accumulatedSum + ang.anguloMedido,
+      0
+    );
+    return sumatoriaObservada;
+  } catch (err) {
+    console.log(err);
+  }
 };
 
 const getSumTeoTipMedErrCorr = async ({ angulo }, sumatoriaObservada) => {

@@ -28,7 +28,7 @@ const CalculoAngulosCinta = ({ idx, angulos, handleOnChangeAngulos }) => {
   };
 
   const handleOnDeleteAngulo = async index => {
-    let newAngulo = medicionAngulos(deleteAng(angulo, index));
+    let newAngulo = await medicionAngulos(deleteAng(angulo, index));
     handleOnChangeAngulos({ ...angulos, angulo: newAngulo });
   };
 

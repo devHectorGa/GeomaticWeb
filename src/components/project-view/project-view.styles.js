@@ -9,7 +9,7 @@ export const ProjectDetailEditContainer = styled.div`
   align-items: center;
   justify-content: center;
   grid-template-columns: repeat(6, 1fr);
-  padding: 1rem 2rem;
+  padding-top: 4rem;
 `;
 
 export const ProjectDetailContainer = styled.div`

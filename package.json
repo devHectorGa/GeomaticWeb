@@ -1,5 +1,6 @@
 {
   "name": "geomatic-web",
+  "homepage": "https://geomaticweb.devhector.ga/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

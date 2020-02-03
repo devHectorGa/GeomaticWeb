@@ -16,7 +16,7 @@ const Header = ({ currentUser, signOutStart }) => (
   <HeaderContainer>
     <HeaderLink to="/">Inicio</HeaderLink>
     <OptionsContainer>
-      <HeaderLink to="/proyectos">Proyectos</HeaderLink>
+      {currentUser ? <HeaderLink to="/proyectos">Proyectos</HeaderLink> : null}
       {currentUser ? (
         <OptionLink as="div" onClick={signOutStart}>
           Cerrar Sesión
