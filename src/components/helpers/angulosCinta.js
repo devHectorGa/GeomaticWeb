@@ -73,7 +73,63 @@ const getAngulo = async angulo => {
   });
 };
 
+const getSumObs = async ({ angulo }) => {
+  let sumatoriaObservada = angulo.reduce(
+    (accumulatedSum, ang) => accumulatedSum + ang.anguloMedido,
+    0
+  );
+  return sumatoriaObservada;
+};
+
+const getSumTeoTipMedErrCorr = async ({ angulo }, sumatoriaObservada) => {
+  if (angulo.length > 2) {
+    let n = angulo.length;
+    let internos = (n - 2) * 180;
+    let externos = (n + 2) * 180;
+    let errorInternos = sumatoriaObservada - internos;
+    let errorExternos = sumatoriaObservada - externos;
+    return Math.abs(errorInternos) < Math.abs(errorExternos)
+      ? {
+          sumatoriaTeorica: internos,
+          tipoMedicion: "ANGULOS_INTERNOS",
+          error: errorInternos,
+          correccion: (errorInternos / n) * -1,
+          angulo: angulo.map(ang => ({
+            ...ang,
+            anguloCorregido: ang.anguloMedido + (errorInternos / n) * -1
+          }))
+        }
+      : {
+          sumatoriaTeorica: externos,
+          tipoMedicion: "ANGULOS_EXTERNOS",
+          error: errorExternos,
+          correccion: (errorExternos / n) * -1,
+          angulo: angulo.map(ang => ({
+            ...ang,
+            anguloCorregido: ang.anguloMedido + (errorExternos / n) * -1
+          }))
+        };
+  } else {
+    return { angulo };
+  }
+};
+
 export const medicionAngulos = async angulos => {
   const angulo = await getAngulo(angulos);
   return angulo;
+};
+
+export const calculosAngulos = async angulos => {
+  let newSumatoriaObservada = await getSumObs(angulos);
+  let newSumaTeoricaTipoMedicionErrorCorreccion = await getSumTeoTipMedErrCorr(
+    angulos,
+    newSumatoriaObservada
+  );
+
+  let newAngulos = {
+    ...angulos,
+    ...newSumaTeoricaTipoMedicionErrorCorreccion,
+    sumatoriaObservada: newSumatoriaObservada
+  };
+  return newAngulos;
 };

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { connect } from "react-redux";
 import { compose } from "redux";
 import { withRouter } from "react-router-dom";
@@ -9,24 +9,31 @@ import { editProject } from "../../../redux/projects/projects.actions";
 import {
   AngulosContainer,
   Title,
-  ButtonContainer
+  TitleContainer,
+  ButtonContainer,
+  AngleDataContainer,
+  SumTeoData,
+  SumObsData,
+  ErrData,
+  CorData
 } from "./medicion-angulos-cinta.styles";
 import { isAngulosEmpty, addAngulo } from "./medicion-angulos-cinta.helper";
+import { calculosAngulos, decToDeg } from "../../helpers/angulosCinta";
 
 import CalculoAngulosCinta from "../calculo-angulos-cinta/calculo-angulos-cinta.component";
 import CustomButton from "../../custom-button/custom-button.component";
 
 const MedicionAngulosCinta = ({ project, id, editProject }) => {
-  let {
-    data: { angulos, ...otherData },
-    ...otherProject
-  } = project;
+  const [show, setShow] = useState(false);
+  let { data, ...otherProject } = project;
+  let { angulos } = data;
 
   angulos = angulos ? angulos : isAngulosEmpty();
 
-  const handleOnChangeAngulos = newAngulos => {
+  const handleOnChangeAngulos = async newAngulo => {
+    let newAngulos = await calculosAngulos(newAngulo);
     let newProject = {
-      data: { angulos: newAngulos, ...otherData },
+      data: { ...data, angulos: newAngulos },
       ...otherProject
     };
     editProject(newProject, id);
@@ -34,7 +41,7 @@ const MedicionAngulosCinta = ({ project, id, editProject }) => {
 
   const handleOnAddAngulos = () => {
     let newProject = {
-      data: { ...otherData, angulos: addAngulo(angulos) },
+      data: { ...data, angulos: addAngulo(angulos) },
       ...otherProject
     };
     editProject(newProject, id);
@@ -42,16 +49,36 @@ const MedicionAngulosCinta = ({ project, id, editProject }) => {
 
   return (
     <AngulosContainer>
-      <Title>Angulos con cinta</Title>
-      <CalculoAngulosCinta
-        angulos={angulos}
-        handleOnChangeAngulos={handleOnChangeAngulos}
-      />
-      <ButtonContainer>
-        <CustomButton onClick={() => handleOnAddAngulos()}>
-          + Angulo
+      <TitleContainer>
+        <Title>{`Angulos con cinta`}</Title>
+        <p>{`Tipo de medición: ${angulos.tipoMedicion}`}</p>
+        <CustomButton onClick={() => setShow(!show)}>
+          Editar Angulos
         </CustomButton>
-      </ButtonContainer>
+      </TitleContainer>
+      {show ? (
+        <CalculoAngulosCinta
+          angulos={angulos}
+          handleOnChangeAngulos={handleOnChangeAngulos}
+        />
+      ) : null}
+      {show ? (
+        <ButtonContainer>
+          <CustomButton onClick={() => handleOnAddAngulos()}>
+            + Angulo
+          </CustomButton>
+        </ButtonContainer>
+      ) : null}
+      <AngleDataContainer>
+        <SumTeoData>{`Sumatoria Teorica: ${decToDeg(
+          angulos.sumatoriaTeorica
+        )}`}</SumTeoData>
+        <SumObsData>{`Sumatoria Observada: ${decToDeg(
+          angulos.sumatoriaObservada
+        )}`}</SumObsData>
+        <ErrData>{`Error: ${decToDeg(angulos.error)}`}</ErrData>
+        <CorData>{`Corrección: ${decToDeg(angulos.correccion)}`}</CorData>
+      </AngleDataContainer>
     </AngulosContainer>
   );
 };

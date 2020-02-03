@@ -33,7 +33,6 @@ export const changeValues = (ang, event, index) => {
   }
 };
 
-export const deleteAng = (angulos, index) => {
-  let { angulo } = angulos;
-  return { ...angulos, angulo: angulo.filter((_, idx) => idx !== index) };
+export const deleteAng = (angulo, index) => {
+  return angulo.filter((_, idx) => idx !== index);
 };
